@@ -14,12 +14,16 @@ $(document).ready(function() {
 	newCabin('http://breckheritage.com/wp-content/uploads/2013/03/klack_cabin_complete_004-150x150.jpg', 1000000, "1,000,000");
 	newCabin('http://rusticozarklogcabins.com/wp-content/uploads/2011/12/P1020381_350h-150x150.jpg', 120000, "120,000");
 
+	$('.textures').append('<span class="forest"></span>')
+
 	$('.dark').on('click', function(event){
 		$('body').css('background', '#000 url(img/dark_wood.png) repeat')
 	})
 	$('.light').on('click', function(event){
 		$('body').css('background', '#000 url(img/tileable_wood_texture.png) repeat')
 	})
+	$('.forest').on('click', function(event){
+		$('body').css({'background': '#000 url(img/forest.jpg) repeat','background-size': 'cover'})
+	})
 
-	$('.textures').append('<span class="forest"></span>')
 })
