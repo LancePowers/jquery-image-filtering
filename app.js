@@ -27,3 +27,14 @@ $(document).ready(function() {
 	})
 
 })
+
+function sortHigh(){
+	var prices = $(".home").map( function(){return $(this).attr("data-price");} );
+	var currentHigh = 0;
+
+	for (var i = 0; i < prices.length; i++) {
+		if(parseInt(prices[i]) > currentHigh){
+			currentHigh = parseInt(prices[i]);
+		}
+	} return currentHigh;
+}
