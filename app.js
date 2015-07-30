@@ -26,15 +26,69 @@ $(document).ready(function() {
 		$('body').css({'background': '#000 url(img/forest.jpg) repeat','background-size': 'cover'})
 	})
 
+	$('.low').on('click',function(event){
+		event.preventDefault();
+		$(".image-container article").sort(sort_article) // sort elements
+		                  .appendTo('.image-container'); // append again to the list;
+	});
+	$('.high').on('click',function(){
+		$(".image-container article").sort(sort_article_high) // sort elements
+											.appendTo('.image-container');
+	});
+	// clear container and add back in.
 })
 
-function sortHigh(){
-	var prices = $(".home").map( function(){return $(this).attr("data-price");} );
-	var currentHigh = 0;
 
-	for (var i = 0; i < prices.length; i++) {
-		if(parseInt(prices[i]) > currentHigh){
-			currentHigh = parseInt(prices[i]);
-		}
-	} return currentHigh;
+// sort function callback
+
+function sort_article(a, b){
+    return ($(b).data('price')) < ($(a).data('price')) ? 1 : -1;
 }
+
+
+function sort_article_high(b, a){
+    return ($(b).data('price')) < ($(a).data('price')) ? 1 : -1;
+}
+
+// if($(b).data('price')) < ($(a).data('price')){ 1 } else{ -1 };
+//
+// function clearContainer(){
+// 	$('.image-container').empty();
+// };
+// function populateContainer(){
+// 		$('.image-container').append(sortHigh());
+// }
+//
+// function sortHigh(){
+// 	var prices = $(".home").map( function(){return $(this).attr("data-price");} );
+// 	var sorted = prices.sort(function(a,b){return b-a});
+// 	return sorted;
+// }
+//
+// function sortLow(){
+// 	var prices = $(".home").map( function(){return $(this).attr("data-price");} );
+// 	var sorted = prices.sort(function(a,b){return a-b});
+// 	return sorted;
+// }
+//
+//
+//
+//
+//
+//
+//
+// // function arrToNum(arr){
+// // 	var numArr = [];
+// // 	for (var i = 0; i < arr.length; i++) {
+// // 		numArr.push(parseInt(arr[i]));
+// // 	}
+// // 	return numArr;
+// // }
+//
+//
+// 	// var currentHigh = 0;
+// // for (var i = 0; i < prices.length; i++) {
+// // 	if(parseInt(prices[i]) > currentHigh){
+// // 		currentHigh = parseInt(prices[i]);
+// // 	}
+// // } return currentHigh;
